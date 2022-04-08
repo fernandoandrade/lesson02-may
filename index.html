@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=1" />
+<script>
+    function simulateScroll() {
+        setTimeout(function(){
+            // This hides the address bar:
+            window.scrollTo(0, document.body.scrollHeight);
+            document.getElementById('container').scrollIntoView();
+            logView('scrolled');
+        }, 500);
+    }
+    function logView(textLog) {
+        document.getElementById('scstatus').innerHTML += '<br>' + textLog;
+    }
+    window.addEventListener("load", simulateScroll);
+    
+    var isfull=false;
+    function fullscreen(elem) {
+        logView('fullscreen.call');
+        elem = document.getElementById('container');
+        //elem = document.documentElement;
+        
+        if (document.documentElement.requestFullscreen) {
+            logView('de.enabled.requestFullscreen');
+        }
+        if (elem.requestFullscreen) {
+            logView('elem.enabled.requestFullscreen');
+        }
+        
+        if (document.documentElement.mozRequestFullScreen) {
+            logView('de.enabled.mozRequestFullScreen');
+        }
+        if (elem.mozRequestFullScreen) {
+            logView('elem.enabled.mozRequestFullScreen');
+        }
+        
+        if (document.documentElement.webkitRequestFullscreen) {
+            logView('de.enabled.webkitRequestFullscreen');
+        }
+        if (elem.webkitRequestFullscreen) {
+            logView('elem.enabled.webkitRequestFullscreen');
+        }
+        
+        if (document.documentElement.msRequestFullscreen) {
+            logView('de.enabled.msRequestFullscreen');
+        }
+        if (elem.msRequestFullscreen) {
+            logView('elem.enabled.msRequestFullscreen');
+        }
+        
+        
+    if (!isfull) {
+        if (elem.requestFullscreen) {
+            logView('requestFullscreen');
+            elem.requestFullscreen({ navigationUI: "hide" });
+            logView('requestFullscreen.end');
+        } else if (elem.mozRequestFullScreen) {
+            logView('mozRequestFullScreen');
+            elem.mozRequestFullScreen();
+            logView('mozRequestFullScreen.end');
+        } else if (document.webkitRequestFullscreen) {
+            logView('webkitRequestFullscreen');
+            elem.webkitRequestFullscreen();
+            logView('webkitRequestFullscreen.end');
+        } else if (elem.msRequestFullscreen) {
+            logView('msRequestFullscreen');
+            elem.msRequestFullscreen();
+            logView('msRequestFullscreen.end');
+        }
+        isfull = true;
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        isfull = false;
+    }
+}
+</script>
+    </head>
+    <body>
+        <div id='container'>
+<h1>Hello World v.6</h1>
+<input type="button" value="Scroll Simulate" onclick="simulateScroll()" />&nbsp;<input type="button" value="Fullscreen" onclick="fullscreen()" />
+<div id='scstatus'></div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </body>
+</html>
+
