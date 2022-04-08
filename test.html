@@ -7,7 +7,7 @@
     function simulateScroll() {
         setTimeout(function(){
             // This hides the address bar:
-            //window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
             document.getElementById('container').scrollIntoView();
             logView('scrolled');
         }, 500);
