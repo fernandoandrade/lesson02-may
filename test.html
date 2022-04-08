@@ -18,6 +18,36 @@
         logView('fullscreen.call');
         elem = document.getElementById('container');
         //elem = document.documentElement;
+        
+        if (document.documentElement.requestFullscreen) {
+            logView('de.enabled.requestFullscreen');
+        }
+        if (elem.requestFullscreen) {
+            logView('elem.enabled.requestFullscreen');
+        }
+        
+        if (document.documentElement.mozRequestFullScreen) {
+            logView('de.enabled.mozRequestFullScreen');
+        }
+        if (elem.mozRequestFullScreen) {
+            logView('elem.enabled.mozRequestFullScreen');
+        }
+        
+        if (document.documentElement.webkitRequestFullscreen) {
+            logView('de.enabled.webkitRequestFullscreen');
+        }
+        if (elem.webkitRequestFullscreen) {
+            logView('elem.enabled.webkitRequestFullscreen');
+        }
+        
+        if (document.documentElement.msRequestFullscreen) {
+            logView('de.enabled.msRequestFullscreen');
+        }
+        if (elem.msRequestFullscreen) {
+            logView('elem.enabled.msRequestFullscreen');
+        }
+        
+        
     if (!isfull) {
         if (elem.requestFullscreen) {
             logView('requestFullscreen');
