@@ -5,8 +5,11 @@
         setTimeout(function(){
             // This hides the address bar:
             window.scrollTo(0, 1);
-            document.getElementById('scstatus').innerHTML = "<br>scrolled";
+            logView('scrolled');
         }, 500);
+    }
+    function logView(textLog) {
+        document.getElementById('scstatus').innerHTML += '<br>' + textLog;
     }
     window.addEventListener("load", simulateScroll);
     
@@ -16,13 +19,21 @@
         //elem = document.documentElement;
     if (!isfull) {
         if (elem.requestFullscreen) {
-            elem.requestFullscreen();
+            logView('requestFullscreen');
+            elem.requestFullscreen({ navigationUI: "hide" });
+            logView('requestFullscreen.end');
         } else if (elem.mozRequestFullScreen) {
+            logView('mozRequestFullScreen');
             elem.mozRequestFullScreen();
+            logView('mozRequestFullScreen.end');
         } else if (document.webkitRequestFullscreen) {
+            logView('webkitRequestFullscreen');
             elem.webkitRequestFullscreen();
+            logView('webkitRequestFullscreen.end');
         } else if (elem.msRequestFullscreen) {
+            logView('msRequestFullscreen');
             elem.msRequestFullscreen();
+            logView('msRequestFullscreen.end');
         }
         isfull = true;
     } else {
