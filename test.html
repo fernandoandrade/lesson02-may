@@ -1,6 +1,5 @@
-<h1>Hello World v.2</h1>
-<input type="button" value="Scroll Simulate" onclick="simulateScroll()" /><input type="button" value="Fullscreen" onclick="fullscreen(document.documentElement)" />
-<div id='scstatus'></div>
+<html>
+    <head>
 <script>
     function simulateScroll() {
         setTimeout(function(){
@@ -13,7 +12,8 @@
     
     var isfull=false;
     function fullscreen(elem) {
-        
+        elem = document.getElementById('container');
+        //elem = document.documentElement;
     if (!isfull) {
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
@@ -39,3 +39,13 @@
     }
 }
 </script>
+    </head>
+    <body>
+        <div id='container'>
+<h1>Hello World v.2</h1>
+<input type="button" value="Scroll Simulate" onclick="simulateScroll()" /><input type="button" value="Fullscreen" onclick="fullscreen()" />
+<div id='scstatus'></div>
+        </div>
+    </body>
+</html>
+
