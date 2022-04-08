@@ -1,5 +1,5 @@
 <h1>Hello World</h1>
-<input type="button" value="Scroll Simulate" onclick="simulateScroll()" /><input type="button" value="Fullscreen" onclick="fullscreen()" />
+<input type="button" value="Scroll Simulate" onclick="simulateScroll()" /><input type="button" value="Fullscreen" onclick="fullscreen(document.documentElement)" />
 <div id='scstatus'></div>
 <script>
     function simulateScroll() {
@@ -12,17 +12,17 @@
     window.addEventListener("load", simulateScroll);
     
     var isfull=false;
-    function fullscreen() {
+    function fullscreen(elem) {
         
     if (!isfull) {
-        if (document.requestFullscreen) {
-            document.requestFullscreen();
-        } else if (document.mozRequestFullScreen) {
-            document.mozRequestFullScreen();
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
         } else if (document.webkitRequestFullscreen) {
-            document.webkitRequestFullscreen();
+            elem.webkitRequestFullscreen();
         } else if (elem.msRequestFullscreen) {
-            document.msRequestFullscreen();
+            elem.msRequestFullscreen();
         }
         isfull = true;
     } else {
