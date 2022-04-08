@@ -1,11 +1,12 @@
-<h1>Hello World</h2>
+<h1>Hello World</h1>
 <input type="button" value="Scroll" onclick="simulateScroll()" />
+<div id='scstatus'></div>
 <script>
     function simulateScroll() {
         setTimeout(function(){
             // This hides the address bar:
             window.scrollTo(0, 1);
-            document.writeln("scroll 1");
+            document.getElementById('scstatus').innerHTML = "<br>scrolled";
         }, 500);
     }
     window.addEventListener("load", simulateScroll);
