@@ -6,7 +6,7 @@
     function simulateScroll() {
         setTimeout(function(){
             // This hides the address bar:
-            window.scrollTo(0, 1);
+            window.scrollTo(0, document.body.scrollHeight);
             logView('scrolled');
         }, 500);
     }
@@ -90,6 +90,8 @@
 <input type="button" value="Scroll Simulate" onclick="simulateScroll()" />&nbsp;<input type="button" value="Fullscreen" onclick="fullscreen()" />
 <div id='scstatus'></div>
         </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>
 
