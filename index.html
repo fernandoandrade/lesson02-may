@@ -21,6 +21,14 @@
      });
 }
     
+    function quickHideAddressBar() {
+	setTimeout(function() {
+		if(window.pageYOffset !== 0) return;
+		window.scrollTo(0, window.pageYOffset + 1);
+
+	}, 1000);
+}
+    
     function simulateScroll() {
         setTimeout(function(){
             // This hides the address bar:
@@ -106,7 +114,8 @@
     <body>
         <div id='container'>
 <h1>Hello World v.6</h1>
-<input type="button" value="Scroll Simulate" onclick="simulateScroll()" />&nbsp;<input type="button" value="Fullscreen" onclick="fullscreen()" />
+<input type="button" value="Scroll Simulate" onclick="simulateScroll()" />&nbsp;<input type="button" value="Fullscreen" onclick="fullscreen()" />&nbsp;
+            <input type="button" value="Quick Fullscreen" onclick="quickHideAddressBar()" />
 <div id='scstatus'></div>
         </div>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
